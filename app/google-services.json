@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "309020431428",
+    "firebase_url": "https://derabona-b2651.firebaseio.com",
+    "project_id": "derabona-b2651",
+    "storage_bucket": "derabona-b2651.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309020431428:android:77729ed047fd33aa",
+        "android_client_info": {
+          "package_name": "com.example.jerry.derabona"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "309020431428-a4mak5shdlusqne8c8duvv9vrpk2tk0g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARmeB9E9xqUNGIfcwnTe_20u0rmjXYlTE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
