@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".register" />
-        <activity android:name=".bets"></activity>
+        <activity android:name=".bets" />
+        <activity android:name=".read"></activity>
     </application>
 
 </manifest>
