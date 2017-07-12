@@ -1,11 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.jerry.derabona.bets">
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/ab_txt_match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="match"
+        />
+
+    <TextView
+        android:id="@+id/ab_txt_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/ab_txt_match"
+        android:text="date"
+        />
+
+    <TextView
+        android:id="@+id/ab_txt_winner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/ab_txt_date"
+        android:text="winner"
+        />
+
+    <EditText
+        android:id="@+id/ab_edt_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"/>
+
+    <Button
+        android:id="@+id/ab_btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:text="Add"/>
 
 
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
