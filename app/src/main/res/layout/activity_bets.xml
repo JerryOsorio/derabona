@@ -32,6 +32,13 @@
         android:text="winner"
         />
 
+    <TextView
+        android:id="@+id/ab_txt_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ab_txt_match"
+        android:text="Test data goes here/"/>
+
     <EditText
         android:id="@+id/ab_edt_name"
         android:layout_width="wrap_content"
