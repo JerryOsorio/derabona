@@ -3,15 +3,22 @@ package com.example.jerry.derabona;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 
@@ -22,6 +29,8 @@ public class bets extends AppCompatActivity {
     private EditText edt_input_name;
     private EditText edt_input_password;
 
+    private TextView txt_data;
+
     private Button btn_add;
 
 
@@ -31,13 +40,31 @@ public class bets extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bets);
 
-
         firebaseDatabase = FirebaseDatabase.getInstance().getReference();
 
         edt_input_name = (EditText) findViewById(R.id.ab_edt_name);
         edt_input_password =(EditText) findViewById(R.id.ab_edt_password);
 
+        txt_data = (TextView) findViewById(R.id.ab_txt_data);
+
         btn_add = (Button) findViewById(R.id.ab_btn_add);
+
+        DatabaseReference example = firebaseDatabase.child("matches").child("1");
+
+        ValueEventListener eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                match match = new match();
+                match = dataSnapshot.getValue(match.class);
+                txt_data.setText(match.getDate().toString() +"     "+ match.getMatch() +"     "+ match.getStatus()+"     "+match.getWinner());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(bets.this, "Error: ", Toast.LENGTH_LONG).show();
+            }
+        };
+        example.addValueEventListener(eventListener);
 
 
 

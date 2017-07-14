@@ -33,7 +33,7 @@ public class read extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        })
+        });
 
     }
 }
