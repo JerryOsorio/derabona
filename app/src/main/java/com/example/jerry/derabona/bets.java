@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class bets extends AppCompatActivity {
@@ -49,6 +50,9 @@ public class bets extends AppCompatActivity {
 
         btn_add = (Button) findViewById(R.id.ab_btn_add);
 
+
+        /*
+
         DatabaseReference example = firebaseDatabase.child("matches").child("1");
 
         ValueEventListener eventListener = new ValueEventListener() {
@@ -66,6 +70,36 @@ public class bets extends AppCompatActivity {
         };
         example.addValueEventListener(eventListener);
 
+
+         */
+
+
+
+        DatabaseReference example = firebaseDatabase.child("matches");
+
+
+        ValueEventListener eventListener = new ValueEventListener() {
+
+            match match = new match();
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<match> matches = new ArrayList<>();
+
+                for(int i = 1; i <= dataSnapshot.getChildrenCount(); i++){
+                    matches.add(dataSnapshot.child(i+"").getValue(match.getClass()));
+                    Log.i("test", matches.get(i-1).getMatch());
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(bets.this, "Error: ", Toast.LENGTH_LONG).show();
+            }
+        };
+        example.addValueEventListener(eventListener);
 
 
 
@@ -102,5 +136,15 @@ public class bets extends AppCompatActivity {
 
 
 
+    }
+
+    public String rowToString(match match){
+        String data = "";
+        data += match.getDate().toString() +"     "+
+                match.getMatch() +"     "+
+                match.getStatus()+"     "+
+                match.getWinner();
+
+        return data;
     }
 }
