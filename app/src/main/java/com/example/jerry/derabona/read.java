@@ -1,5 +1,6 @@
 package com.example.jerry.derabona;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class read extends AppCompatActivity {
+public class read extends Activity {
 
     private DatabaseReference firebaseDatabase;
 
@@ -37,7 +40,7 @@ public class read extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bets);
+        setContentView(R.layout.activity_read);
 
         firebaseDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -46,6 +49,7 @@ public class read extends AppCompatActivity {
 
         DatabaseReference example = firebaseDatabase.child("matches");
 
+        final ArrayList<match> matches = new ArrayList<>();
 
         ValueEventListener eventListener = new ValueEventListener() {
 
@@ -53,7 +57,6 @@ public class read extends AppCompatActivity {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                ArrayList<match> matches = new ArrayList<>();
 
                 for(int i = 1; i <= dataSnapshot.getChildrenCount(); i++){
                     matches.add(dataSnapshot.child(i+"").getValue(match.getClass()));
@@ -61,6 +64,8 @@ public class read extends AppCompatActivity {
 
 
                 }
+
+
             }
 
             @Override
@@ -69,6 +74,11 @@ public class read extends AppCompatActivity {
             }
         };
         example.addValueEventListener(eventListener);
+
+
+        ListAdapter customAdapter = new read_adapter(this, matches);
+        ListView list = findViewById(R.id.ar_list);
+        list.setAdapter(customAdapter);
 
     }
 
