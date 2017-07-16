@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,11 +39,17 @@ public class read_adapter extends ArrayAdapter<match>{
         String description = match.getMatch();
         String date = match.getDate();
 
-        TextView txt_date = (TextView) view.findViewById(R.id.ab_txt_data);
+        TextView txt_date = (TextView) view.findViewById(R.id.ab_txt_date);
         TextView txt_description = (TextView) view.findViewById(R.id.ab_txt_match);
+
+
+        Log.i("test", date +"   found");
+        Log.i("test", description +"   found");
 
         txt_date.setText(date);
         txt_description.setText(description);
+
+
         return view;
     }
 }

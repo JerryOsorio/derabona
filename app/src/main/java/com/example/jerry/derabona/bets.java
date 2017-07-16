@@ -129,8 +129,7 @@ public class bets extends AppCompatActivity {
 
                 });
                  */
-                Intent intent = new Intent(this, read.class);
-             startActivity();
+              OnClick();
 
             }
         });
@@ -142,6 +141,12 @@ public class bets extends AppCompatActivity {
 
 
     }
+
+    public void OnClick(){
+        Intent intent = new Intent(this, read.class);
+        startActivity(intent);
+    }
+
 
     public String rowToString(match match){
         String data = "";
