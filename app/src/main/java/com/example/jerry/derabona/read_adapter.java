@@ -44,7 +44,5 @@ public class read_adapter extends ArrayAdapter<match>{
         txt_date.setText(date);
         txt_description.setText(description);
         return view;
-
-
     }
 }

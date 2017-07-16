@@ -1,5 +1,6 @@
 package com.example.jerry.derabona;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -106,8 +107,8 @@ public class bets extends AppCompatActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                String name = edt_input_name.getText().toString().trim();
+                /*
+                   String name = edt_input_name.getText().toString().trim();
                 String password = edt_input_password.getText().toString().trim();
 
                 HashMap<String,String> data = new HashMap<>();
@@ -127,6 +128,10 @@ public class bets extends AppCompatActivity {
 
 
                 });
+                 */
+                Intent intent = new Intent(this, read.class);
+             startActivity();
+
             }
         });
 
