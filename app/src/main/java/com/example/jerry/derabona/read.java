@@ -42,6 +42,8 @@ public class read extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read);
 
+        Log.i("test", "on create called");
+
         firebaseDatabase = FirebaseDatabase.getInstance().getReference();
 
         txt_data = (TextView) findViewById(R.id.ab_txt_data);

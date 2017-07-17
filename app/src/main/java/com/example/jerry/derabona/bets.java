@@ -144,6 +144,7 @@ public class bets extends AppCompatActivity {
 
     public void OnClick(){
         Intent intent = new Intent(this, read.class);
+        Log.i("test", "clicked and going to read.class");
         startActivity(intent);
     }
 

@@ -55,6 +55,7 @@ public class read_adapter extends ArrayAdapter<match>{
         TextView txt_date = (TextView) view.findViewById(R.id.ab_txt_date);
         TextView txt_description = (TextView) view.findViewById(R.id.ab_txt_match);
 
+
         Log.i("test", date +"   found");
         Log.i("test", description +"   found");
 

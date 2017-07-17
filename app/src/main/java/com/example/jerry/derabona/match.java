@@ -9,18 +9,37 @@ public class match {
     private String match;
     private String winner;
     private String status;
+    private String team1;
+    private String team2;
 
     public match(){
 
     }
 
-    public match(String date, String match, String winner, String status){
+    public match(String date, String match, String winner, String status, String team1, String team2){
         this.date = date;
         this.match = match;
         this.winner = winner;
         this.status = status;
+        this.team1 = team1;
+        this.team2 = team2;
     }
 
+    public String getTeam1() {
+        return team1;
+    }
+
+    public void setTeam1(String team1) {
+        this.team1 = team1;
+    }
+
+    public String getTeam2() {
+        return team2;
+    }
+
+    public void setTeam2(String team2) {
+        this.team2 = team2;
+    }
 
     public String getDate() {
         return date;
