@@ -10,7 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -47,20 +50,26 @@ public class read_adapter extends ArrayAdapter<match>{
 
         }
 
-
         match match  = getItem(position);
         String description = match.getMatch();
         String date = match.getDate();
+        String team1 = match.getTeam1();
+        String team2 = match.getTeam2();
 
-        TextView txt_date = (TextView) view.findViewById(R.id.ab_txt_date);
-        TextView txt_description = (TextView) view.findViewById(R.id.ab_txt_match);
+        TextView txt_date = view.findViewById(R.id.ab_txt_date);
+        TextView txt_description = view.findViewById(R.id.ab_txt_match);
+        RadioButton rb_team1 = view.findViewById(R.id.ar_rb_team1);
+        RadioButton rb_team2 = view.findViewById(R.id.ar_rb_team2);
 
         Log.i("test", date +"   found");
         Log.i("test", description +"   found");
 
         txt_date.setText(date);
         txt_description.setText(description);
+        rb_team1.setText(team1);
+        rb_team2.setText(team2);
 
+        
 
         return view;
     }

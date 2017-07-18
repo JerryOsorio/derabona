@@ -63,28 +63,34 @@
                 android:orientation="horizontal"
                 android:gravity="center">
 
-                <Spinner
-                    android:id="@+id/ab_spn_dropdown"
+                <RadioGroup
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-                </Spinner>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:text="$"/>
-                <EditText
-                    android:id="@+id/ab_edt_amount"
-                    android:inputType="numberDecimal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="16sp" />
-                <Button
-                    android:id="@+id/ab_btn_bet"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:text="Bet"/>
+                    <RadioButton
+                        android:id="@+id/ar_rb_team1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="team1"
+                        android:onClick="radioClick"/>
+
+                    <RadioButton
+                        android:id="@+id/ar_rb_draw"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="draw"
+                        android:onClick="radioClick"/>
+
+                    <RadioButton
+                        android:id="@+id/ar_rb_team2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="team2"
+                        android:onClick="radioClick"/>
+
+                </RadioGroup>
+
             </LinearLayout>
         </RelativeLayout>
 
