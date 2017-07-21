@@ -64,6 +64,7 @@
                 android:gravity="center">
 
                 <RadioGroup
+                    android:id="@+id/ar_rg_pick"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
@@ -72,22 +73,19 @@
                         android:id="@+id/ar_rb_team1"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="team1"
-                        android:onClick="radioClick"/>
+                        android:text="team1"/>
 
                     <RadioButton
                         android:id="@+id/ar_rb_draw"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="draw"
-                        android:onClick="radioClick"/>
+                        android:text="draw"/>
 
                     <RadioButton
                         android:id="@+id/ar_rb_team2"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="team2"
-                        android:onClick="radioClick"/>
+                        android:text="team2"/>
 
                 </RadioGroup>
 
