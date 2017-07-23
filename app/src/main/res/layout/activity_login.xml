@@ -30,6 +30,7 @@
             android:id="@+id/al_btn_sign_in"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:text="Sign In"/>
 
         <TextView
@@ -41,13 +42,22 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/editText"
+        android:id="@+id/al_txt_login_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/al_ll_main"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:textSize="24sp"
+        android:textSize="28sp"
+        android:textStyle="bold"
         android:text="Login Page" />
 
+    <ImageView
+        android:id="@+id/al_img_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/al_txt_login_page"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/login_icon"/>
 </RelativeLayout>

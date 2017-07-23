@@ -42,10 +42,10 @@ public class register extends AppCompatActivity implements View.OnClickListener{
         }
 
         progressBar = new ProgressBar(this);
-        btn_register = (Button) findViewById(R.id.asu_btn_register);
-        edt_email = (EditText) findViewById(R.id.asu_edt_email);
-        edt_password = (EditText) findViewById(R.id.asu_edt_password);
-        txt_sign_in = (TextView) findViewById(R.id.asu_txt_sign_in);
+        btn_register = (Button) findViewById(R.id.ar_btn_register);
+        edt_email = (EditText) findViewById(R.id.ar_edt_username);
+        edt_password = (EditText) findViewById(R.id.ar_edt_password);
+        txt_sign_in = (TextView) findViewById(R.id.ar_txt_sign_in);
 
         btn_register.setOnClickListener(this);
         txt_sign_in.setOnClickListener(this);

@@ -5,7 +5,7 @@
     android:layout_marginRight="10dp">
 
     <LinearLayout
-        android:id="@+id/ap_ll_main"
+        android:id="@+id/ar_ll_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -13,27 +13,28 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/asu_edt_email"
+            android:id="@+id/ar_edt_username"
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your username"/>
+            android:hint="Enter a username"/>
 
         <EditText
-            android:id="@+id/asu_edt_password"
+            android:id="@+id/ar_edt_password"
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your password"/>
+            android:hint="Enter a password"/>
 
         <Button
-            android:id="@+id/asu_btn_register"
+            android:id="@+id/ar_btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign Up"/>
+            android:textAllCaps="false"
+            android:text="Register"/>
 
         <TextView
-            android:id="@+id/asu_txt_sign_in"
+            android:id="@+id/ar_txt_sign_in"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
@@ -41,13 +42,24 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/editText"
+        android:id="@+id/ar_txt_sign_up_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/ap_ll_main"
+        android:layout_above="@+id/ar_ll_main"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:textSize="24sp"
+        android:textSize="28sp"
+        android:textStyle="bold"
         android:text="Sign Up Page" />
+
+
+    <ImageView
+        android:id="@+id/ar_img_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/ar_txt_sign_up_page"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/login_icon"/>
 
 </RelativeLayout>

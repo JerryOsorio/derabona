@@ -84,9 +84,7 @@ public class read extends Activity {
         btn_bet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                for(){
 
-                }
             }
         });
 
