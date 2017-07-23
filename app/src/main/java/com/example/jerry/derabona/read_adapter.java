@@ -63,7 +63,6 @@ public class read_adapter extends ArrayAdapter<match>{
 
 
         radioGroup = view.findViewById(R.id.ar_rg_pick);
-        RadioButton checkedRadioButton = radioGroup.findViewById(radioGroup.getCheckedRadioButtonId());
 
 
 

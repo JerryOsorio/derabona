@@ -80,6 +80,16 @@ public class read extends Activity {
         ListView list = findViewById(R.id.ar_list);
         list.setAdapter(customAdapter);
 
+        Button btn_bet = findViewById(R.id.ar_btn_bet);
+        btn_bet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for(){
+
+                }
+            }
+        });
+
     }
 
     public String rowToString(match match){
