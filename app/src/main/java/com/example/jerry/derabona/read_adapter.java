@@ -19,6 +19,8 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by jerry on 7/15/17.
@@ -28,6 +30,7 @@ public class read_adapter extends ArrayAdapter<match>{
 
     RadioGroup radioGroup;
     private ArrayList<match> matches;
+    private Map<String,Integer> choices;
     Context context;
 
 
@@ -55,7 +58,7 @@ public class read_adapter extends ArrayAdapter<match>{
 
         }
 
-        match match  = getItem(position);
+        final match match  = getItem(position);
         String description = match.getMatch();
         String date = match.getDate();
         String team1 = match.getTeam1();
@@ -73,7 +76,10 @@ public class read_adapter extends ArrayAdapter<match>{
                 RadioButton checkedRadioButton = radioGroup.findViewById(i);
                 boolean isChecked = checkedRadioButton.isChecked();
                 if(isChecked){
-                    Log.i("test", "a team was chosen, team "+i);
+                    String pick = checkedRadioButton.getText().toString();
+                    Log.i("test", "a team was chosen, team "+ pick);
+                    match.setPick(pick);
+                    Log.i("test", match.getPick());
                 }
 
             }

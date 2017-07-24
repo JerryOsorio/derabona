@@ -32,15 +32,6 @@ public class login extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        if(firebaseAuth.getCurrentUser() !=null){
-            //profile activity here
-            finish();
-            startActivity(new Intent(getApplicationContext(),bets.class));
-        }
-
-
-
         btn_sign_in = (Button) findViewById(R.id.al_btn_sign_in);
         edt_email = (EditText) findViewById(R.id.al_edt_email);
         edt_password = (EditText) findViewById(R.id.al_edt_password);
@@ -50,21 +41,29 @@ public class login extends AppCompatActivity implements View.OnClickListener{
 
         btn_sign_in.setOnClickListener(this);
         txt_sign_up.setOnClickListener(this);
+
+        //if the user is already logged in, start the bets activity
+        firebaseAuth = FirebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser() !=null){
+            finish();
+            startActivity(new Intent(getApplicationContext(),bets.class));
+        }
     }
 
     public void userLogin(){
         String email = edt_email.getText().toString().trim();
         String password = edt_password.getText().toString().trim();
 
+        //check if email is empty
         if(TextUtils.isEmpty(email)){
             Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show();
             return;
-            //email is empty
         }
+
+        //check if password is empty
         if(TextUtils.isEmpty(password)){
             Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show();
             return;
-            //password is empty
         }
 
         //if all goes well
@@ -75,7 +74,7 @@ public class login extends AppCompatActivity implements View.OnClickListener{
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            //start profile activity
+                            //start read activity
                             finish();
                             startActivity(new Intent(getApplicationContext(),read.class));
                         }

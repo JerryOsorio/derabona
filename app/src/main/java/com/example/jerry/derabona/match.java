@@ -5,11 +5,22 @@ package com.example.jerry.derabona;
  */
 
 public class match {
+
     private String date;
     private String match;
     private String winner;
     private String status;
     private String team1;
+    private String team2;
+    private String pick;
+
+    public String getPick() {
+        return pick;
+    }
+
+    public void setPick(String pick) {
+        this.pick = pick;
+    }
 
     public String getTeam1() {
         return team1;
@@ -26,8 +37,6 @@ public class match {
     public void setTeam2(String team2) {
         this.team2 = team2;
     }
-
-    private String team2;
 
     public match(){
 
