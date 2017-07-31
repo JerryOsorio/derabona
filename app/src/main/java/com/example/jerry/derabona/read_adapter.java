@@ -38,19 +38,30 @@ public class read_adapter extends ArrayAdapter<match>{
         super(context, R.layout.activity_read_row, matches);
         this.matches = matches;
         this.context = context;
-        //this.wagers = wagers;
+    }
+
+
+    public read_adapter(Context context, ArrayList<match> matches, Map<String, String> wagers) {
+        super(context, R.layout.activity_read_row, matches);
+        this.matches = matches;
+        this.context = context;
+        this.wagers = wagers;
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         String pick = position + "a";
+        boolean users_found = false;
+        if(!wagers.isEmpty()){
+            users_found = true;
+        }
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View view = inflater.inflate(R.layout.activity_read_row, parent, false);
 
 
-        if(!getItem(position).getStatus().equals("open")){
+        if(!getItem(position).getStatus().equals("open") || (users_found )){
 
             LinearLayout ll_bottom = view.findViewById(R.id.ar_ll_bottom);
             ll_bottom.setVisibility(View.GONE);

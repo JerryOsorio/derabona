@@ -23,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class read extends Activity {
 
@@ -37,6 +38,10 @@ public class read extends Activity {
 
     private user user1;
 
+
+    final ArrayList<match> matches = new ArrayList<>();
+    final ArrayList<user> users = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,14 +49,11 @@ public class read extends Activity {
 
         firebaseDatabase = FirebaseDatabase.getInstance().getReference();
 
-        txt_data = (TextView) findViewById(R.id.ab_txt_data);
 
 
         DatabaseReference ref_matches = firebaseDatabase.child("matches");
         DatabaseReference ref_users = firebaseDatabase.child("users").child("1");
 
-        final ArrayList<match> matches = new ArrayList<>();
-        final ArrayList<user> users = new ArrayList<>();
 
         ValueEventListener eventListener = new ValueEventListener() {
 
@@ -80,7 +82,9 @@ public class read extends Activity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                     users.add(dataSnapshot.getValue(user1.getClass()));
-                    Log.i("test", users.get(0).getEmail());
+                    Log.i("test", users.get(0).getEmail()+ "  "+users.get(0).getWagers().get("1a"));
+                    getList();
+
             }
 
             @Override
@@ -89,9 +93,8 @@ public class read extends Activity {
             }
         });
 
-        ListAdapter customAdapter = new read_adapter(this, matches);
-        ListView list = findViewById(R.id.ar_list);
-        list.setAdapter(customAdapter);
+
+        getList();
 
         Button btn_bet = findViewById(R.id.ar_btn_bet);
         btn_bet.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +103,24 @@ public class read extends Activity {
 
             }
         });
+
+    }
+
+    public ListView getList(){
+        if(users.isEmpty()){
+            Log.i("testusers", "No users found");
+            ListAdapter customAdapter = new read_adapter(this, matches);
+            ListView list = findViewById(R.id.ar_list);
+            list.setAdapter(customAdapter);
+            return list;
+        }else{
+            Log.i("testusers", "users found");
+            ListAdapter customAdapter = new read_adapter(this, matches, users.get(0).getWagers());
+            ListView list = findViewById(R.id.ar_list);
+            list.setAdapter(customAdapter);
+            return list;
+        }
+
 
     }
 }

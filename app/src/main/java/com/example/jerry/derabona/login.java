@@ -42,11 +42,11 @@ public class login extends AppCompatActivity implements View.OnClickListener{
         btn_sign_in.setOnClickListener(this);
         txt_sign_up.setOnClickListener(this);
 
-        //if the user is already logged in, start the bets activity
+        //if the user is already logged in, start the read activity
         firebaseAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser() !=null){
             finish();
-            startActivity(new Intent(getApplicationContext(),bets.class));
+            startActivity(new Intent(getApplicationContext(),read.class));
         }
     }
 

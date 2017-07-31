@@ -38,7 +38,7 @@ public class register extends AppCompatActivity implements View.OnClickListener{
         if(firebaseAuth.getCurrentUser() !=null){
             //profile activity here
             finish();
-            startActivity(new Intent(getApplicationContext(),bets.class));
+            startActivity(new Intent(getApplicationContext(),read.class));
         }
 
         progressBar = new ProgressBar(this);
@@ -79,7 +79,7 @@ public class register extends AppCompatActivity implements View.OnClickListener{
                             //user successfully registered
                             Toast.makeText(register.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
                             finish();
-                            startActivity(new Intent(getApplicationContext(),bets.class));
+                            startActivity(new Intent(getApplicationContext(),read.class));
                         }
                         else{
 
