@@ -30,7 +30,7 @@ public class read_adapter extends ArrayAdapter<match>{
 
     RadioGroup radioGroup;
     private ArrayList<match> matches;
-    private Map<String,Integer> choices;
+    private Map<String,String> wagers;
     Context context;
 
 
@@ -38,11 +38,14 @@ public class read_adapter extends ArrayAdapter<match>{
         super(context, R.layout.activity_read_row, matches);
         this.matches = matches;
         this.context = context;
+        //this.wagers = wagers;
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        String pick = position + "a";
+
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View view = inflater.inflate(R.layout.activity_read_row, parent, false);
 

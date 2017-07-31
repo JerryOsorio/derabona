@@ -35,7 +35,7 @@ public class read extends Activity {
 
     private Button btn_add;
 
-
+    private user user1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +47,11 @@ public class read extends Activity {
         txt_data = (TextView) findViewById(R.id.ab_txt_data);
 
 
-        DatabaseReference example = firebaseDatabase.child("matches");
+        DatabaseReference ref_matches = firebaseDatabase.child("matches");
+        DatabaseReference ref_users = firebaseDatabase.child("users").child("1");
 
         final ArrayList<match> matches = new ArrayList<>();
+        final ArrayList<user> users = new ArrayList<>();
 
         ValueEventListener eventListener = new ValueEventListener() {
 
@@ -57,15 +59,10 @@ public class read extends Activity {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
                 for(int i = 1; i <= dataSnapshot.getChildrenCount(); i++){
                     matches.add(dataSnapshot.child(i+"").getValue(match.getClass()));
                     Log.i("test", matches.get(i-1).getMatch());
-
-
                 }
-
-
             }
 
             @Override
@@ -73,8 +70,24 @@ public class read extends Activity {
                 Toast.makeText(read.this, "Error: ", Toast.LENGTH_LONG).show();
             }
         };
-        example.addValueEventListener(eventListener);
+        ref_matches.addValueEventListener(eventListener);
 
+
+        ref_users.addValueEventListener(new ValueEventListener() {
+
+            user user1 = new user();
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                    users.add(dataSnapshot.getValue(user1.getClass()));
+                    Log.i("test", users.get(0).getEmail());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(read.this, "Error: ", Toast.LENGTH_LONG).show();
+            }
+        });
 
         ListAdapter customAdapter = new read_adapter(this, matches);
         ListView list = findViewById(R.id.ar_list);
@@ -88,15 +101,5 @@ public class read extends Activity {
             }
         });
 
-    }
-
-    public String rowToString(match match){
-        String data = "";
-        data += match.getDate().toString() +"     "+
-                match.getMatch() +"     "+
-                match.getStatus()+"     "+
-                match.getWinner();
-
-        return data;
     }
 }
