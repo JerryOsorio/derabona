@@ -61,7 +61,8 @@ public class read_adapter extends ArrayAdapter<match>{
         View view = inflater.inflate(R.layout.activity_read_row, parent, false);
 
 
-        if(!getItem(position).getStatus().equals("open") || (users_found )){
+        if(!getItem(position).getStatus().equals("open")){
+            Log.i("test", " match is not open or users were found");
 
             LinearLayout ll_bottom = view.findViewById(R.id.ar_ll_bottom);
             ll_bottom.setVisibility(View.GONE);
