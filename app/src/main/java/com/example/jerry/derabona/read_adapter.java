@@ -51,17 +51,19 @@ public class read_adapter extends ArrayAdapter<match>{
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        String pick = position + "a";
-        boolean users_found = false;
-        if(!wagers.isEmpty()){
-            users_found = true;
-        }
+
+        Integer index = position+1;
+        String pick = index + "a";
+        boolean users_found = wagers.containsKey(pick);
+
+        Log.i("test", "match: "+getItem(position).getMatch()+",  pick: "+pick+", "+users_found);
+
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View view = inflater.inflate(R.layout.activity_read_row, parent, false);
 
 
-        if(!getItem(position).getStatus().equals("open")){
+        if(!getItem(position).getStatus().equals("open") || users_found){
             Log.i("test", " match is not open or users were found");
 
             LinearLayout ll_bottom = view.findViewById(R.id.ar_ll_bottom);
