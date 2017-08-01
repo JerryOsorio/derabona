@@ -71,7 +71,13 @@ public class read_adapter extends ArrayAdapter<match>{
 
             TextView txt_progress = view.findViewById(R.id.ar_txt_progress);
             txt_progress.setVisibility(View.VISIBLE);
-            txt_progress.setText(getItem(position).getStatus());
+
+            if(users_found){
+                txt_progress.setText("Betting On: "+ wagers.get(pick));
+            }else{
+
+                txt_progress.setText(getItem(position).getStatus());
+            }
 
         }
 
